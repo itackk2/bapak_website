@@ -1,132 +1,624 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ketut's Bali Tours & Transport | Tanjung Benoa</title>
+    <title>Ketut Bali Tours & Private Driver | Tanjung Benoa</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary: #006d77;
+            --primary-dark: #004953;
+            --accent: #e29578;
+            --bg-light: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --status-green: #2a9d8f;
+            --status-red: #e63946;
+            --whatsapp-color: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f7fcfc;
-            color: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
+            padding-bottom: 70px; /* space for mobile sticky bar */
         }
-        header {
-            background-color: #0077b6;
-            color: white;
+
+        /* --- Top Availability & Live Clock Bar --- */
+        .top-bar {
+            background-color: #1d3557;
+            color: #ffffff;
+            padding: 10px 15px;
+            font-size: 0.9rem;
             text-align: center;
+        }
+
+        .top-bar-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .clock-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-online {
+            background-color: var(--status-green);
+        }
+
+        .status-offline {
+            background-color: var(--status-red);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ffffff;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
             padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            opacity: 0.9;
+
+        .profile-img-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            overflow: hidden;
+            background-color: #e0e0e0;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
         }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+        }
+
+        .badge-30years {
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        /* --- Container & Layout --- */
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 2rem 1rem;
         }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero-container {
+                flex-direction: row;
+                text-align: left;
+                justify-content: center;
+            }
+        }
+
+        /* --- Card Components --- */
         .card {
-            background-color: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1fr solid #eef2f5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.75rem;
+        }
+
+        .card-header h2, .card-header h3 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+        }
+
+        .svg-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* --- Language / International Section --- */
+        .lang-flags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .flag-tag {
+            background: #eef6f7;
+            border: 1px solid #cce3e6;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        /* --- Pricing Table / Cards --- */
+        .price-card {
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 1.25rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
-        h2 {
-            color: #0077b6;
-            margin-top: 0;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 10px;
+
+        .price-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
         }
-        .services-list {
-            list-style-type: none;
+
+        .price-tag {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 10px 0;
+        }
+
+        .price-currency-hint {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .price-list {
+            list-style: none;
             padding: 0;
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
-        .services-list li {
-            background: #e8f4f8;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 5px;
+
+        .price-list li {
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .price-list li::before {
+            content: "✓";
+            color: var(--status-green);
             font-weight: bold;
         }
-        .contact-section {
-            text-align: center;
-            background-color: #ffffff;
-            border: 2px solid #25D366;
-        }
+
+        /* --- WhatsApp CTA --- */
         .whatsapp-btn {
-            background-color: #25D366;
+            background-color: var(--whatsapp-color);
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 14px 24px;
             border-radius: 50px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             font-weight: bold;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: background-color 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
         }
+
         .whatsapp-btn:hover {
-            background-color: #1ebe57;
+            background-color: #20ba5a;
         }
+
+        .whatsapp-btn svg {
+            fill: #ffffff;
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Sticky Mobile Footer Bar */
+        .mobile-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            padding: 10px 15px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .mobile-sticky-bar .whatsapp-btn {
+            margin-top: 0;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            width: auto;
+            flex-grow: 1;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-sticky-bar {
+                display: none;
+            }
+            body {
+                padding-bottom: 0;
+            }
+        }
+
         footer {
             text-align: center;
-            padding: 2rem;
-            background-color: #333;
-            color: white;
-            font-size: 0.9rem;
+            padding: 2rem 1rem;
+            background-color: #1d3557;
+            color: #ffffff;
+            font-size: 0.85rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Decorative Wave SVG Divider */
+        .wave-container {
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            background-color: var(--primary);
+        }
+        .wave-container svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+        }
+        .wave-container .shape-fill {
+            fill: var(--bg-light);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Ketut's Bali Tours & Transport</h1>
-        <p>Authentic Balinese Experiences from a Trusted Local Guide</p>
-    </header>
-
-    <div class="container">
-        
-        <div class="card">
-            <h2>Om Swastyastu! Welcome to Bali</h2>
-            <p>My name is Ketut, and I am based in the beautiful coastal village of Tanjung Benoa. I have proudly worked in the Bali tourism and transport industry for <strong>30 years</strong>. Whether you are looking for a relaxing day trip, an adventurous cultural tour, or reliable airport transfers, I am here to share the magic of my island with you.</p>
-            <p>With three decades of experience driving the roads of Bali, I know all the hidden gems, the best times to avoid traffic, and the most authentic local spots.</p>
+    <!-- TOP AVAILABILITY & LIVE BALI TIME BAR -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                📅 <strong>WhatsApp Response Hours:</strong> <span id="wa-hours-display">[07:00 WITA - 22:00 WITA]</span>
+            </div>
+            <div class="clock-container">
+                <!-- Clock Icon SVG -->
+                <svg class="svg-icon" style="fill:#fff; width:16px; height:16px;" viewBox="0 0 24 24">
+                    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm.5-13h-2v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                </svg>
+                <span>Bali Time: <span id="bali-clock">--:-- WITA</span></span>
+                <span id="status-badge" class="status-badge status-online">
+                    <span class="status-dot"></span> Checking WhatsApp
+                </span>
+            </div>
         </div>
-
-        <div class="card">
-            <h2>My Services</h2>
-            <ul class="services-list">
-                <li>🚗 Private Daily Driver & Car Charter</li>
-                <li>✈️ Reliable Airport Pick-up & Drop-off</li>
-                <li>🏝️ Custom Full-Day & Half-Day Island Tours (Ubud, Uluwatu, Kintamani)</li>
-                <li>🚤 Tanjung Benoa Water Sports & Nusa Penida Trip Arrangements</li>
-                <li>🛕 Cultural, Temple, and Waterfall Tours</li>
-            </ul>
-        </div>
-
-        <div class="card contact-section">
-            <h2>Ready to Explore?</h2>
-            <p>Let's plan your perfect Bali itinerary. Send me a message on WhatsApp for rates and availability!</p>
-            <!-- Replace the placeholder number in the href and text below with the real one later -->
-            <a href="https://wa.me/6281200000000" class="whatsapp-btn" target="_blank">
-                💬 Chat on WhatsApp (+62 812-4609-0294)
-            </a>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">Located in Tanjung Benoa, South Kuta, Bali</p>
-        </div>
-
     </div>
 
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="profile-img-container">
+                <!-- Replace ketut.png in the same directory as index.html -->
+                <img src="ketut.png" alt="Ketut - Bali Tour Guide" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'150\' viewBox=\'0 0 24 24\' fill=\'%23006d77\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>';">
+            </div>
+            <div>
+                <span class="badge-30years">🏆 30 Years Experience</span>
+                <h1 style="margin-top: 8px;">Ketut's Bali Private Driver & Tours</h1>
+                <p>Based in Tanjung Benoa | Safe, Honest & Reliable Local Guidance</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Decorative SVG Wave -->
+    <div class="wave-container">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- ABOUT & LANGUAGES -->
+        <div class="grid grid-2" style="margin-bottom: 2rem;">
+            <div class="card">
+                <div class="card-header">
+                    <!-- Balinese Temple SVG Icon -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L2 9h3v11h14V9h3L12 2zm0 3.8L17.5 9H6.5L12 5.8zM7 18v-7h10v7H7z"/>
+                    </svg>
+                    <h2>Om Swastyastu! Meet Ketut</h2>
+                </div>
+                <p>Hello and welcome to Bali! My name is <strong>Ketut</strong>, and Tanjung Benoa in South Kuta has been my home for my entire life.</p>
+                <p style="margin-top: 10px;">For over <strong>30 years</strong>, I have worked in tourism, driving guests across every corner of Bali. Whether you want to explore ancient temples, discover hidden waterfalls, enjoy water sports, or simply need a safe ride from the airport, I am here to take care of you like family.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- Globe SVG Icon -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                    </svg>
+                    <h2>Welcome International Guests</h2>
+                </div>
+                <p>I warmly welcome visitors from <strong>Australia, France, Spain, Russia</strong>, and all around the world!</p>
+                
+                <p style="margin-top: 8px; font-size: 0.95rem;">
+                    💬 <strong>Communication:</strong> I speak good <strong>English</strong> and fluent <strong>Indonesian</strong>. For my guests from France, Spain, Russia, or elsewhere, I am very accustomed to using <strong>Google Translate</strong> on WhatsApp and in person, so communication is always smooth and easy!
+                </p>
+
+                <div class="lang-flags">
+                    <span class="flag-tag">🇦🇺 English (Good)</span>
+                    <span class="flag-tag">🇮🇩 Indonesian (Native)</span>
+                    <span class="flag-tag">🇫🇷 French (Translate OK)</span>
+                    <span class="flag-tag">🇪🇸 Spanish (Translate OK)</span>
+                    <span class="flag-tag">🇷🇺 Russian (Translate OK)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- POPULAR SERVICES & TRANSPARENT PRICING -->
+        <h2 style="color: var(--primary-dark); margin-bottom: 1rem; text-align: center;">Tour Services & Estimated Pricing</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Rates include comfortable private air-conditioned car, petrol/fuel, and driver services for up to 5 passengers. (Excludes temple entrance tickets & parking).
+        </p>
+
+        <div class="grid grid-3" style="margin-bottom: 2.5rem;">
+            
+            <!-- Full Day Charter -->
+            <div class="price-card card">
+                <div class="card-header">
+                    <!-- Car SVG Icon -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4h14v4z"/>
+                        <circle cx="7.5" cy="14.5" r="1.5"/>
+                        <circle cx="16.5" cy="14.5" r="1.5"/>
+                    </svg>
+                    <h3>Full-Day Car Charter</h3>
+                </div>
+                <div class="price-tag">
+                    IDR 650,000 <span class="price-currency-hint">/ day</span>
+                </div>
+                <div class="price-currency-hint">
+                    ~ AUD $65 | ~ €40 | ~ $42 USD | ~ 3,800 RUB
+                </div>
+                <ul class="price-list">
+                    <li>Up to 10 - 12 hours total duration</li>
+                    <li>Ubud, Uluwatu, Kintamani, Waterfalls</li>
+                    <li>Flexible itinerary — go where you want</li>
+                    <li>Clean, cool air-conditioned vehicle</li>
+                </ul>
+            </div>
+
+            <!-- Half Day Charter -->
+            <div class="price-card card">
+                <div class="card-header">
+                    <!-- Compass/Sun SVG Icon -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/>
+                    </svg>
+                    <h3>Half-Day Tour</h3>
+                </div>
+                <div class="price-tag">
+                    IDR 450,000 <span class="price-currency-hint">/ half day</span>
+                </div>
+                <div class="price-currency-hint">
+                    ~ AUD $45 | ~ €27 | ~ $29 USD | ~ 2,600 RUB
+                </div>
+                <ul class="price-list">
+                    <li>Up to 5 - 6 hours duration</li>
+                    <li>Great for Sunset tours (Uluwatu/Tanah Lot)</li>
+                    <li>Local dinner transfers & beach trips</li>
+                    <li>Pickup & return to your hotel</li>
+                </ul>
+            </div>
+
+            <!-- Airport & Water Sports -->
+            <div class="price-card card">
+                <div class="card-header">
+                    <!-- Plane SVG Icon -->
+                    <svg class="svg-icon" viewBox="0 0 24 24">
+                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                    </svg>
+                    <h3>Airport Pick-Up & Transfers</h3>
+                </div>
+                <div class="price-tag">
+                    IDR 200,000 - 300,000
+                </div>
+                <div class="price-currency-hint">
+                    Depends on hotel location (Nusa Dua, Kuta, Seminyak, Ubud)
+                </div>
+                <ul class="price-list">
+                    <li>Punctual arrival with welcome sign</li>
+                    <li>Tanjung Benoa Watersports packages</li>
+                    <li>Nusa Penida day trip assistance</li>
+                    <li>Luggage assistance included</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div class="card" style="text-align: center; border: 2px solid var(--whatsapp-color);">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <h2 style="color: var(--primary-dark);">Book Your Ride or Ask a Question</h2>
+                <p style="margin-top: 10px; font-size: 0.95rem;">
+                    You can send a message in <strong>English, French, Spanish, Russian, or Indonesian</strong>. I am always happy to answer questions and help plan your Bali vacation!
+                </p>
+
+                <!-- Fake Placeholder WhatsApp Link -->
+                <a href="https://wa.me/6281200000000" target="_blank" class="whatsapp-btn">
+                    <!-- WhatsApp SVG Icon -->
+                    <svg viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>Send Message on WhatsApp</span>
+                </a>
+                
+                <p style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+                    Placeholder WhatsApp: <strong>+62 812-0000-0000</strong>
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- STICKY MOBILE CTA BAR -->
+    <div class="mobile-sticky-bar">
+        <a href="https://wa.me/6281200000000" target="_blank" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>Book with Ketut</span>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Ketut's Bali Tours & Transport. All rights reserved.</p>
+        <p><strong>Ketut's Bali Transport & Tours</strong> | Tanjung Benoa, South Kuta, Bali</p>
+        <p style="margin-top: 5px;">30 Years of Dedicated Tourism Service • Island Tours & Transfers</p>
     </footer>
 
+    <!-- JAVASCRIPT FOR BALI TIME & STATUS BADGE -->
+    <script>
+        // CONFIGURATION: Set Ketut's WhatsApp active hours here (24-hour format in WITA/Bali Time)
+        const WA_START_HOUR = 7;  // X placeholder (e.g. 7 AM)
+        const WA_END_HOUR = 22;   // Y placeholder (e.g. 10 PM)
+
+        function updateBaliClock() {
+            try {
+                // Get current Bali Time (UTC+8 / Asia/Makassar)
+                const now = new Date();
+                
+                const timeOptions = { 
+                    timeZone: 'Asia/Makassar', 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit', 
+                    hour12: false 
+                };
+                
+                const hourOptions = { 
+                    timeZone: 'Asia/Makassar', 
+                    hour: 'numeric', 
+                    hour12: false 
+                };
+
+                const baliTimeString = new Intl.DateTimeFormat('en-GB', timeOptions).format(now);
+                const baliHour = parseInt(new Intl.DateTimeFormat('en-GB', hourOptions).format(now), 10);
+
+                // Update clock DOM
+                document.getElementById('bali-clock').textContent = baliTimeString + ' WITA';
+
+                // Check availability condition
+                const badge = document.getElementById('status-badge');
+                if (baliHour >= WA_START_HOUR && baliHour < WA_END_HOUR) {
+                    badge.className = 'status-badge status-online';
+                    badge.innerHTML = '<span class="status-dot"></span> Online / Checking Messages';
+                } else {
+                    badge.className = 'status-badge status-offline';
+                    badge.innerHTML = '<span class="status-dot"></span> Offline / Will reply soon';
+                }
+            } catch (e) {
+                console.error("Clock update error:", e);
+            }
+        }
+
+        // Run clock update every second
+        setInterval(updateBaliClock, 1000);
+        updateBaliClock();
+    </script>
 </body>
 </html>
+
+```
