@@ -39,7 +39,7 @@
             padding-bottom: 70px;
         }
 
-        /* Top Bar Jam WITA */
+        /* Top Bar Jam WITA & Currency Selector */
         .top-bar {
             background-color: var(--primary-dark);
             color: var(--accent-gold);
@@ -64,6 +64,28 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
+        }
+
+        .currency-picker {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .currency-btn {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid var(--accent-gold);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .currency-btn.active {
+            background: var(--accent-gold);
+            color: var(--primary-dark);
         }
 
         .status-badge {
@@ -115,14 +137,14 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         .nav-links a {
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: color 0.2s ease;
         }
 
@@ -136,7 +158,7 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 4rem 1rem;
+            padding: 3.5rem 1rem;
             text-align: center;
         }
 
@@ -151,8 +173,8 @@
 
         .profile-img-container {
             position: relative;
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             border: 4px solid var(--accent-gold);
             overflow: hidden;
@@ -166,8 +188,8 @@
             object-fit: cover;
         }
 
-        .hero h1 { font-size: 2.3rem; margin-bottom: 0.5rem; text-shadow: 1px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.1rem; opacity: 0.95; max-width: 600px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; text-shadow: 1px 2px 4px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1rem; opacity: 0.95; max-width: 600px; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 
         .badge-30years {
             background: var(--accent-gold);
@@ -176,7 +198,7 @@
             border-radius: 20px;
             font-weight: bold;
             display: inline-block;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
@@ -191,7 +213,7 @@
             color: var(--primary-dark);
             margin-bottom: 0.5rem;
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .section-desc {
@@ -206,7 +228,7 @@
         @media (min-width: 768px) {
             .grid-2 { grid-template-columns: 1fr 1fr; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.7rem; }
             .hero-container { flex-direction: row; text-align: left; justify-content: center; }
         }
 
@@ -230,17 +252,16 @@
 
         .card-header h2, .card-header h3 {
             color: var(--primary-dark);
-            font-size: 1.3rem;
+            font-size: 1.25rem;
         }
 
-        /* PACKAGE & PRICING CARDS */
+        /* PACKAGE CARDS */
         .price-card {
             background-color: #ffffff;
             border: 2px solid rgba(44, 94, 59, 0.2);
             border-radius: 14px;
             padding: 1.5rem;
             transition: transform 0.2s ease, border-color 0.2s ease;
-            position: relative;
         }
 
         .price-card:hover {
@@ -249,19 +270,23 @@
         }
 
         .price-tag {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: var(--primary-dark);
             margin: 8px 0 4px 0;
         }
 
-        .price-currency-hint { font-size: 0.85rem; color: var(--text-muted); }
+        .converted-price {
+            font-size: 0.85rem;
+            color: var(--accent-coral);
+            font-weight: 700;
+        }
 
-        .price-list { list-style: none; padding: 0; margin-top: 12px; font-size: 0.95rem; }
-        .price-list li { padding: 5px 0; display: flex; align-items: center; gap: 8px; }
+        .price-list { list-style: none; padding: 0; margin-top: 12px; font-size: 0.92rem; }
+        .price-list li { padding: 4px 0; display: flex; align-items: center; gap: 8px; }
         .price-list li::before { content: "✓"; color: var(--status-green); font-weight: bold; }
 
-        /* ATV DROPDOWN IN UBUD CARD */
+        /* ATV DROPDOWN ACCORDION IN UBUD CARD */
         .atv-toggle-btn {
             background-color: #eaf3ed;
             color: var(--primary-dark);
@@ -271,17 +296,12 @@
             width: 100%;
             text-align: left;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             cursor: pointer;
             margin-top: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.2s ease;
-        }
-
-        .atv-toggle-btn:hover {
-            background-color: #d8e8dc;
         }
 
         .atv-details {
@@ -291,23 +311,107 @@
             border-radius: 8px;
             padding: 12px;
             margin-top: 10px;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
         }
 
-        .atv-details.open {
+        .atv-details.open { display: block; }
+        .atv-pkg-title { font-weight: bold; color: var(--primary-dark); margin-top: 6px; }
+
+        /* ITINERARY BUILDER / CALCULATOR */
+        .builder-box {
+            background: #ffffff;
+            border: 2px solid var(--accent-gold);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .builder-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .builder-group label {
             display: block;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
         }
 
-        .atv-pkg-title {
-            font-weight: bold;
-            color: var(--primary-dark);
-            margin-top: 6px;
+        .builder-select, .builder-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary-light);
+            border-radius: 8px;
+            font-size: 0.95rem;
         }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .checkbox-item {
+            background: #f4f6f0;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .total-price-box {
+            background: var(--primary-dark);
+            color: var(--accent-gold);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .total-price-box h3 { font-size: 1.5rem; }
+
+        /* TESTIMONIAL SLIDER */
+        .review-card {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stars { color: #f4a261; margin-bottom: 6px; }
+
+        /* FAQ ACCORDION */
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 0;
+        }
+
+        .faq-question {
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            color: var(--primary-dark);
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .faq-answer.open { display: block; }
 
         /* GALERI TOUR BALI */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
         }
 
@@ -315,33 +419,24 @@
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            height: 200px;
+            height: 180px;
             border: 2px solid var(--primary-light);
         }
 
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.06);
-        }
+        .gallery-item:hover img { transform: scale(1.06); }
 
         .gallery-caption {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
+            position: absolute; bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(27, 61, 37, 0.9));
-            color: #fff;
-            padding: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            color: #fff; padding: 8px; font-size: 0.85rem; font-weight: 600;
         }
 
-        /* BUTTON WHATSAPP PULSE */
+        /* WHATSAPP PULSE BUTTON */
         .whatsapp-btn {
             background-color: var(--whatsapp-color);
             color: white;
@@ -401,10 +496,17 @@
 </head>
 <body>
 
-    <!-- TOP AVAILABILITY BAR -->
+    <!-- TOP AVAILABILITY & CURRENCY BAR -->
     <div class="top-bar">
         <div class="top-bar-content">
-            <div>📅 <strong>WhatsApp Hours:</strong> <span>[07:00 WITA - 22:00 WITA]</span></div>
+            <div class="currency-picker">
+                <span>Currency:</span>
+                <button class="currency-btn active" onclick="setCurrency('IDR')">IDR</button>
+                <button class="currency-btn" onclick="setCurrency('AUD')">AUD</button>
+                <button class="currency-btn" onclick="setCurrency('USD')">USD</button>
+                <button class="currency-btn" onclick="setCurrency('EUR')">EUR</button>
+                <button class="currency-btn" onclick="setCurrency('RUB')">RUB</button>
+            </div>
             <div class="clock-container">
                 <span>Bali Time: <span id="bali-clock">--:-- WITA</span></span>
                 <span id="status-badge" class="status-badge status-online">
@@ -420,9 +522,10 @@
             <a href="#beranda" class="logo">Ketut <span>Bali Tours</span></a>
             <ul class="nav-links">
                 <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#tentang">Tentang</a></li>
                 <li><a href="#paket">Paket Tour</a></li>
-                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#builder">Custom Tour</a></li>
+                <li><a href="#reviews">Review</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
         </div>
@@ -432,12 +535,12 @@
     <header id="beranda" class="hero">
         <div class="hero-container">
             <div class="profile-img-container">
-                <img src="ketut.png" alt="Ketut - Tour Guide Bali" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'140\' height=\'140\' viewBox=\'0 0 24 24\' fill=\'%232c5e3b\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>';">
+                <img src="ketut.png" alt="Ketut - Tour Guide Bali" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'130\' height=\'130\' viewBox=\'0 0 24 24\' fill=\'%232c5e3b\'><path d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z\'/></svg>';">
             </div>
             <div>
-                <span class="badge-30years">🏆 30 Years Experience</span>
+                <span class="badge-30years">🏆 30 Years Local Experience</span>
                 <h1 style="margin-top: 8px;">Ketut's Private Driver & Bali Tours</h1>
-                <p>Based in Tanjung Benoa | Safe, Honest & Reliable Local Guidance</p>
+                <p>Based in Tanjung Benoa | Safe, Honest & Reliable Guidance</p>
             </div>
         </div>
     </header>
@@ -453,7 +556,7 @@
                         <h2>Om Swastyastu! Meet Ketut</h2>
                     </div>
                     <p>Hello and welcome to Bali! My name is <strong>Ketut</strong>, born and raised in Tanjung Benoa, South Kuta.</p>
-                    <p style="margin-top: 10px;">For over <strong>30 years</strong>, I have guided international guests across every corner of Bali. Whether exploring ancient temples or waterfalls, I treat my guests like family.</p>
+                    <p style="margin-top: 10px;">For over <strong>30 years</strong>, I have guided international guests across every corner of Bali with family warmth and safety.</p>
                 </div>
 
                 <div class="card">
@@ -467,16 +570,16 @@
 
         <!-- PAKET & HARGA -->
         <section id="paket" style="margin-bottom: 3rem;">
-            <h2 class="section-title">Exclusive Bali Tour Packages</h2>
-            <p class="section-desc">Rates include comfortable private air-conditioned car, petrol, and driver services for up to 5 passengers.</p>
+            <h2 class="section-title">Popular Tour Programs</h2>
+            <p class="section-desc">Rates include private AC vehicle, petrol, and driver for up to 5 passengers.</p>
 
             <div class="grid grid-2">
                 
-                <!-- UBUD PROGRAM (WITH INTEGRATED ATV ACCORDION) -->
+                <!-- UBUD PROGRAM (TERMASUK DROP DOWN ATV) -->
                 <div class="price-card">
                     <h3>Full Day - Ubud Program</h3>
                     <div class="price-tag">850,000 IDR <span class="price-currency-hint">/ 10 Hours</span></div>
-                    <div class="price-currency-hint">~ AUD $85 | ~ €52 | ~ $54 USD | ~ 4,900 RUB</div>
+                    <div class="converted-price" data-idr="850000">~ AUD $85</div>
                     <ul class="price-list">
                         <li>Bali Swing</li>
                         <li>ATV Quad Bike Adventure</li>
@@ -485,7 +588,6 @@
                         <li>Ubud Monkey Forest</li>
                     </ul>
 
-                    <!-- DROPDOWN KHUSUS HARGA ATV -->
                     <button class="atv-toggle-btn" onclick="toggleAtvDetails()">
                         <span>🏍️ View ATV Price List (KeepALL Adventure)</span>
                         <span id="atv-arrow">▼</span>
@@ -506,7 +608,7 @@
                 <div class="price-card">
                     <h3>Full Day - Nusa Dua Program</h3>
                     <div class="price-tag">650,000 IDR <span class="price-currency-hint">/ 10 Hours</span></div>
-                    <div class="price-currency-hint">~ AUD $65 | ~ €40 | ~ $42 USD | ~ 3,800 RUB</div>
+                    <div class="converted-price" data-idr="650000">~ AUD $65</div>
                     <ul class="price-list">
                         <li>Tanjung Benoa Water Sports</li>
                         <li>GWK Cultural Park</li>
@@ -519,8 +621,8 @@
                 <!-- TABANAN PROGRAM -->
                 <div class="price-card">
                     <h3>Full Day - Tabanan Program</h3>
-                    <div class="price-tag">50 USD <span class="price-currency-hint">(~800,000 IDR) / 9-10 Hours</span></div>
-                    <div class="price-currency-hint">~ AUD $77 | ~ €46 | ~ 4,600 RUB</div>
+                    <div class="price-tag">800,000 IDR <span class="price-currency-hint">(50 USD) / 9-10 Hours</span></div>
+                    <div class="converted-price" data-idr="800000">~ AUD $80</div>
                     <ul class="price-list">
                         <li>Ulun Danu Beratan Lake Temple</li>
                         <li>Jatiluwih UNESCO Rice Terrace</li>
@@ -532,8 +634,8 @@
                 <!-- EAST BALI TEMPLES PROGRAM -->
                 <div class="price-card">
                     <h3>Full Day - Temple Highlights</h3>
-                    <div class="price-tag">80 USD <span class="price-currency-hint">(~1,280,000 IDR) / Full Day</span></div>
-                    <div class="price-currency-hint">~ AUD $123 | ~ €74 | ~ 7,400 RUB</div>
+                    <div class="price-tag">1,280,000 IDR <span class="price-currency-hint">(80 USD) / Full Day</span></div>
+                    <div class="converted-price" data-idr="1280000">~ AUD $128</div>
                     <ul class="price-list">
                         <li>Lempuyang Temple (Gate of Heaven)</li>
                         <li>Tirta Gangga Water Palace</li>
@@ -545,11 +647,105 @@
             </div>
         </section>
 
-        <!-- GALERI -->
+        <!-- ITINERARY BUILDER & PRICE CALCULATOR -->
+        <section id="builder" style="margin-bottom: 3rem;">
+            <h2 class="section-title">Build Your Custom Itinerary</h2>
+            <p class="section-desc">Pilih durasi, jumlah penumpang, dan destinasi untuk estimasi harga instan.</p>
+
+            <div class="builder-box">
+                <div class="grid grid-2">
+                    <div class="builder-group">
+                        <label>Tipe Layanan / Charter:</label>
+                        <select id="build-service" class="builder-select" onchange="calculateTourTotal()">
+                            <option value="650000">Full Day Charter (10-12 Hours) - 650,000 IDR</option>
+                            <option value="450000">Half Day Charter (5-6 Hours) - 450,000 IDR</option>
+                            <option value="850000">Full Day Ubud Program - 850,000 IDR</option>
+                            <option value="800000">Full Day Tabanan UNESCO (50 USD) - ~800,000 IDR</option>
+                            <option value="1280000">East Bali Temples (80 USD) - ~1,280,000 IDR</option>
+                            <option value="250000">Airport Transfer - 250,000 IDR</option>
+                        </select>
+                    </div>
+
+                    <div class="builder-group">
+                        <label>Jumlah Penumpang:</label>
+                        <select id="build-passengers" class="builder-select">
+                            <option value="1-4">1 - 4 Orang (Mobil Standard)</option>
+                            <option value="5-6">5 - 6 Orang (Kabin Luas)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="builder-group">
+                    <label>Pilih Destinasi Yang Ingin Dikunjungi:</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-item"><input type="checkbox" value="Ubud Rice Terrace" class="dest-cb" onchange="calculateTourTotal()"> Tegallalang Rice Terrace</label>
+                        <label class="checkbox-item"><input type="checkbox" value="Monkey Forest" class="dest-cb" onchange="calculateTourTotal()"> Monkey Forest Ubud</label>
+                        <label class="checkbox-item"><input type="checkbox" value="Uluwatu Temple" class="dest-cb" onchange="calculateTourTotal()"> Pura Uluwatu & Kecak</label>
+                        <label class="checkbox-item"><input type="checkbox" value="Tanah Lot" class="dest-cb" onchange="calculateTourTotal()"> Tanah Lot Sunset</label>
+                        <label class="checkbox-item"><input type="checkbox" value="Waterfalls" class="dest-cb" onchange="calculateTourTotal()"> Tegenungan Waterfall</label>
+                        <label class="checkbox-item"><input type="checkbox" value="ATV KeepALL Pkg A" class="dest-cb" onchange="calculateTourTotal()"> ATV Pkg A (+1,300k/p)</label>
+                        <label class="checkbox-item"><input type="checkbox" value="ATV KeepALL Pkg B" class="dest-cb" onchange="calculateTourTotal()"> ATV Pkg B (+800k/p)</label>
+                    </div>
+                </div>
+
+                <div class="total-price-box">
+                    <div>Estimasi Total Biaya Transportasi:</div>
+                    <h3 id="builder-total-display">650,000 IDR</h3>
+                    <a id="builder-wa-link" href="#" target="_blank" class="whatsapp-btn" style="width: auto; margin-top: 10px; display: inline-flex;">
+                        Kirim Rute Ini ke WhatsApp Bli Ketut
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS & TESTIMONIALS -->
+        <section id="reviews" style="margin-bottom: 3rem;">
+            <h2 class="section-title">What Guests Say About Ketut</h2>
+            <p class="section-desc">Ulasan jujur dari wisatawan mancanegara.</p>
+
+            <div class="grid grid-3">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Ketut drove our family around Ubud and Uluwatu for 3 days. Always 10 minutes early, super safe driver, and knows all the quiet spots!"</p>
+                    <div style="margin-top: 10px; font-weight: bold; font-size: 0.85rem; color: var(--primary-dark);">- Sarah M., Sydney 🇦🇺</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Ketut est un chauffeur exceptionnel! Très gentil, voiture très propre avec clim. Il a utilisé Google Translate sans problème."</p>
+                    <div style="margin-top: 10px; font-weight: bold; font-size: 0.85rem; color: var(--primary-dark);">- Jean & Claire, Paris 🇫🇷</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Great experience with Ketut in Bali! Honest pricing with no hidden surprises. Highly recommend his airport pick-up!"</p>
+                    <div style="margin-top: 10px; font-weight: bold; font-size: 0.85rem; color: var(--primary-dark);">- Dmitry K., Moscow 🇷🇺</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ ACCORDION -->
+        <section id="faq" style="margin-bottom: 3rem;">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="card">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">Apakah harga sudah termasuk bensin & tol? <span>+</span></div>
+                    <div class="faq-answer">Ya! Semua harga car charter sudah termasuk mobil ber-AC, bensin (petrol), dan jasa driver selama jam durasi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">Apakah tiket masuk objek wisata sudah termasuk? <span>+</span></div>
+                    <div class="faq-answer">Harga charter belum termasuk tiket masuk pura/wisata, parkir, serta makanan pribadi tamu.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">Bisa ubah rute wisata sendiri (Custom Itinerary)? <span>+</span></div>
+                    <div class="faq-answer">Tentu saja! Rute sangat fleksibel. Anda bisa menentukan sendiri tempat yang ingin dikunjungi.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALERI HIGHLIGHTS -->
         <section id="galeri" style="margin-bottom: 3rem;">
             <h2 class="section-title">Bali Tour Highlights</h2>
-            <p class="section-desc">Tempat-tempat indah yang sering saya kunjungi bersama para tamu.</p>
-
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=400" alt="Pura Bali">
@@ -576,7 +772,7 @@
                 <h2 style="color: var(--primary-dark);">Book Your Ride with Ketut</h2>
                 <p style="margin-top: 10px; font-size: 0.95rem;">Hubungi langsung via WhatsApp untuk booking atau konsultasi rute gratis.</p>
 
-                <!-- Ubah 6281200000000 dengan nomor asli Ketut -->
+                <!-- Ganti nomor 6281200000000 dengan nomor asli Ketut -->
                 <a href="https://wa.me/6281200000000?text=Halo%20Ketut,%20saya%20ingin%20tanya%20paket%20tour%20Bali" target="_blank" class="whatsapp-btn">
                     <svg viewBox="0 0 24 24">
                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
@@ -600,8 +796,23 @@
         <p><strong>Ketut's Bali Transport & Tours</strong> | Tanjung Benoa, South Kuta, Bali</p>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT LENGKAP -->
     <script>
+        // Currency Switcher
+        const rates = { IDR: 1, AUD: 0.00010, USD: 0.000063, EUR: 0.000058, RUB: 0.0058 };
+        const symbols = { IDR: 'IDR ', AUD: 'AUD $', USD: '$', EUR: '€', RUB: '₽ ' };
+
+        function setCurrency(curr) {
+            document.querySelectorAll('.currency-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === curr);
+            });
+            document.querySelectorAll('.converted-price').forEach(el => {
+                const idr = parseFloat(el.getAttribute('data-idr'));
+                const converted = (idr * rates[curr]).toLocaleString('en-US', { maximumFractionDigits: 0 });
+                el.textContent = `~ ${symbols[curr]}${converted}`;
+            });
+        }
+
         // Toggle ATV Dropdown inside Ubud Card
         function toggleAtvDetails() {
             const details = document.getElementById('atv-details');
@@ -615,7 +826,37 @@
             }
         }
 
-        // Live Bali Clock & WA Status
+        // Toggle FAQ Accordion
+        function toggleFaq(el) {
+            const answer = el.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            if (!isOpen) {
+                answer.classList.add('open');
+            }
+        }
+
+        // Itinerary Calculator
+        function calculateTourTotal() {
+            const basePrice = parseInt(document.getElementById('build-service').value, 10);
+            let total = basePrice;
+            let selectedDestinations = [];
+
+            document.querySelectorAll('.dest-cb:checked').forEach(cb => {
+                selectedDestinations.push(cb.value);
+            });
+
+            document.getElementById('builder-total-display').textContent = total.toLocaleString() + ' IDR';
+
+            const pax = document.getElementById('build-passengers').value;
+            const destText = selectedDestinations.length > 0 ? selectedDestinations.join(', ') : 'Rute Standar';
+            const waText = `Halo Ketut, saya mau booking tour custom:%0A- Tipe: ${document.getElementById('build-service').options[document.getElementById('build-service').selectedIndex].text}%0A- Penumpang: ${pax}%0A- Destinasi: ${destText}%0A- Estimasi Harga: ${total.toLocaleString()} IDR`;
+            
+            // Ganti 6281200000000 dengan nomor asli Ketut
+            document.getElementById('builder-wa-link').href = `https://wa.me/6281200000000?text=${waText}`;
+        }
+
+        // Live Bali Clock & Status
         const WA_START_HOUR = 7;
         const WA_END_HOUR = 22;
 
@@ -640,8 +881,10 @@
                 }
             } catch (e) { console.error(e); }
         }
+
         setInterval(updateBaliClock, 1000);
         updateBaliClock();
+        calculateTourTotal();
     </script>
 </body>
 </html>
