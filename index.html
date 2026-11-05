@@ -39,7 +39,7 @@
             padding-bottom: 70px;
         }
 
-        /* Top Bar Jam WITA & Currency Picker */
+        /* Top Bar WITA Clock & Currency */
         .top-bar {
             background-color: var(--primary);
             color: #ffffff;
@@ -257,7 +257,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* TOUR CARDS CLEAN REDESIGN */
+        /* TOUR CARDS */
         .price-card {
             background-color: #ffffff;
             border: 1px solid var(--border-color);
@@ -313,7 +313,7 @@
         .price-list li { padding: 6px 0; display: flex; align-items: center; gap: 10px; color: var(--text-dark); }
         .price-list li::before { content: "✓"; color: var(--teal-accent); font-weight: 800; }
 
-        /* TOMBOL POP-UP ATV BERSIH & MODERN */
+        /* ATV POPUP TRIGGER */
         .atv-modal-trigger-btn {
             background-color: var(--primary);
             color: #ffffff;
@@ -338,7 +338,7 @@
             transform: translateY(-1px);
         }
 
-        /* MODAL POP-UP STYLES */
+        /* MODAL POPUP */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -379,10 +379,7 @@
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            font-weight: 300;
         }
-
-        .modal-close-btn:hover { color: var(--primary); }
 
         .atv-price-box {
             background: #f8fafc;
@@ -399,7 +396,7 @@
             margin-bottom: 6px;
         }
 
-        /* ITINERARY BUILDER */
+        /* BUILDER WIDGET */
         .builder-box {
             background: #ffffff;
             border: 1px solid var(--border-color);
@@ -538,7 +535,6 @@
         .whatsapp-btn:hover { background-color: #20ba5a; }
         .whatsapp-btn svg { fill: #ffffff; width: 22px; height: 22px; }
 
-        /* Sticky Footer Mobile */
         .mobile-sticky-bar {
             position: fixed;
             bottom: 0; left: 0; right: 0;
@@ -612,7 +608,7 @@
             <div>
                 <span class="badge-30years">🏆 30 Years Experience Local Guide</span>
                 <h1 style="margin-top: 8px;">Ketut's Bali Private Driver & Transport</h1>
-                <p>Based in Tanjung Benoa | Professional, Punctual & Friendly Local Guidance</p>
+                <p>Based in Tanjung Benoa | Safe, Honest & Punctual Guidance</p>
             </div>
         </div>
     </header>
@@ -620,33 +616,33 @@
     <!-- MAIN CONTENT -->
     <main class="container">
 
-        <!-- ABOUT KETUT -->
+        <!-- ABOUT KETUT (REVISED JUJUR BAHASA) -->
         <section id="about" style="margin-bottom: 3.5rem;">
             <div class="grid grid-2">
                 <div class="card">
                     <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 1.3rem;">Om Swastyastu! Meet Ketut</h3>
                     <p>Hello and welcome to Bali! My name is <strong>Ketut</strong>, born and raised in Tanjung Benoa, South Kuta.</p>
-                    <p style="margin-top: 10px;">For over <strong>30 years</strong>, I have had the privilege of guiding international guests across every corner of Bali. I treat all my guests like family with honest pricing and comfortable vehicles.</p>
+                    <p style="margin-top: 10px;">For over <strong>30 years</strong>, I have guided international guests across Bali with family warmth, honest fixed pricing, and a clean AC vehicle.</p>
                 </div>
 
                 <div class="card">
-                    <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 1.3rem;">Multilingual & Reliable</h3>
-                    <p>I speak English and Indonesian fluently. I am also very experienced in using Google Translate to seamlessly assist guests from France, Spain, Russia, and all over the world!</p>
+                    <h3 style="color: var(--primary); margin-bottom: 8px; font-size: 1.3rem;">Friendly Communication</h3>
+                    <p>I speak <strong>English</strong> and <strong>Indonesian</strong>. I am very comfortable using <strong>Google Translate</strong> on WhatsApp and during trips to easily communicate with guests from 🇦🇺 Australia, 🇫🇷 France, 🇪🇸 Spain, and 🇷🇺 Russia!</p>
                 </div>
             </div>
         </section>
 
-        <!-- TOUR PACKAGES SECTION -->
+        <!-- TOUR PACKAGES -->
         <section id="packages" style="margin-bottom: 4rem;">
             <div class="section-header">
                 <div class="section-subtitle">Recommended Routes</div>
                 <h2 class="section-title">Popular Full Day Tour Programs</h2>
-                <p class="section-desc">All rates include private AC vehicle, petrol, toll fees, and driver for up to 5 passengers.</p>
+                <p class="section-desc">All rates include private AC vehicle, petrol, parking, and driver for up to 5 passengers.</p>
             </div>
 
             <div class="grid grid-2">
                 
-                <!-- UBUD PROGRAM CARD (BERSIH DENGAN MODAL TRIGGER) -->
+                <!-- UBUD PROGRAM CARD -->
                 <div class="price-card">
                     <div>
                         <span class="price-card-badge">MOST POPULAR</span>
@@ -664,7 +660,6 @@
                         </ul>
                     </div>
 
-                    <!-- TOMBOL LOOK HERE UNTUK LIHAT ATV POP-UP -->
                     <button class="atv-modal-trigger-btn" onclick="openAtvModal()">
                         <span>🏍️ LOOK HERE FOR ATV ACTIVITIES</span>
                         <span>➔</span>
@@ -696,7 +691,7 @@
                         <span class="price-card-badge">NATURE & HERITAGE</span>
                         <h3>Full Day - Tabanan UNESCO Highlights</h3>
                         <div class="price-tag-wrapper">
-                            <div class="price-tag">50 USD <span class="price-currency-hint">(~800,000 IDR) / 10 Hours</span></div>
+                            <div class="price-tag">800,000 IDR <span class="price-currency-hint">(50 USD) / 10 Hours</span></div>
                             <div class="converted-price" data-idr="800000">~ AUD $80</div>
                         </div>
                         <ul class="price-list">
@@ -714,7 +709,7 @@
                         <span class="price-card-badge">INSTAGRAMMABLE</span>
                         <h3>Full Day - Temple Highlights (East Bali)</h3>
                         <div class="price-tag-wrapper">
-                            <div class="price-tag">80 USD <span class="price-currency-hint">(~1,280,000 IDR) / Full Day</span></div>
+                            <div class="price-tag">1,280,000 IDR <span class="price-currency-hint">(80 USD) / Full Day</span></div>
                             <div class="converted-price" data-idr="1280000">~ AUD $128</div>
                         </div>
                         <ul class="price-list">
@@ -833,29 +828,33 @@
             </div>
         </section>
 
-        <!-- FAQ ACCORDION -->
+        <!-- FAQ ACCORDION (INFORMASI PENTING TURIS INT'L) -->
         <section id="faq" style="margin-bottom: 4rem;">
             <div class="section-header">
-                <div class="section-subtitle">Information</div>
+                <div class="section-subtitle">Essential Travel Info</div>
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
             <div class="card">
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Are petrol and toll fees included in the charter rate? <span>+</span></div>
-                    <div class="faq-answer">Yes! All charter prices include clean private air-conditioned vehicle, petrol, parking, toll fees, and driver service for the specified duration.</div>
+                    <div class="faq-question" onclick="toggleFaq(this)">Are petrol, parking, and tolls included in the price? <span>+</span></div>
+                    <div class="faq-answer">Yes! All private charter rates include comfortable air-conditioned car, petrol, parking fees, highway tolls, and driver services. No hidden extra vehicle costs.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Are attraction entrance tickets included? <span>+</span></div>
-                    <div class="faq-answer">Charter rates cover transportation only. Temple entrance tickets, activity fees (e.g., swing, water sports), and meals are paid directly by guests.</div>
+                    <div class="faq-question" onclick="toggleFaq(this)">Are attraction entrance tickets or temple sarongs included? <span>+</span></div>
+                    <div class="faq-answer">Charter prices cover private transport only. Temple entrance tickets (usually 50,000 - 100,000 IDR per person) and sarong rentals are paid directly by guests at temple gates.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Can we customize our own itinerary? <span>+</span></div>
-                    <div class="faq-answer">Absolutely! All tours are 100% private and flexible. You can adjust stopping points or timing anytime during the day.</div>
+                    <div class="faq-question" onclick="toggleFaq(this)">Do I need cash or can I pay in foreign currency? <span>+</span></div>
+                    <div class="faq-answer">Payment is made directly to Ketut after your tour ends. Cash in Indonesian Rupiah (IDR) is preferred, but AUD, USD, or EUR are accepted at fair daily exchange rates.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">What about Bali Tourist Tax Levy & Visa on Arrival (VoA)? <span>+</span></div>
+                    <div class="faq-answer">Most international tourists require a 30-day Visa on Arrival (VoA ~500,000 IDR / $35 USD) and the Bali Tourist Entry Levy (150,000 IDR). It is recommended to pay these online before arrival!</div>
                 </div>
             </div>
         </section>
 
-        <!-- PHOTO GALLERY HIGHLIGHTS -->
+        <!-- PHOTO GALLERY -->
         <section id="gallery" style="margin-bottom: 4rem;">
             <div class="section-header">
                 <div class="section-subtitle">Destinations</div>
@@ -898,7 +897,7 @@
 
     </main>
 
-    <!-- MODAL POP-UP KHUSUS AKTIVITAS ATV -->
+    <!-- MODAL POPUP ATV -->
     <div id="atv-modal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-btn" onclick="closeAtvModal()">&times;</button>
@@ -963,7 +962,6 @@
             document.getElementById('atv-modal').classList.remove('active');
         }
 
-        // Close Modal when clicking outside box
         window.onclick = function(event) {
             const modal = document.getElementById('atv-modal');
             if (event.target === modal) {
